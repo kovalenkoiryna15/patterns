@@ -10,20 +10,19 @@
   
   1) Компоненты = сервисы (в противопоставление библиотекам) </br>
      С точки зрения компонентного подхода, сервисы - это внешние по отношению к текущему процессу компоненты, которые общаются посредством запросов от веб-сервисов или RPC (Remote Procedure Call).
+     Разделение на сервисы может происходить по принципу бизнес-доменов (domain-driven design) и др.
+     Каждый сервис может использовать нужные ему технологии в зависимости от бизнес задачи. 
+     В рамках большого приложения над разными сервисами могут работать небольшие многофункциональные команды (дизайнеры, тестировщики, ui-разработчики, backend-разработчики, специалисты по работе с базой данных).
      
   2) Independent deployability </br>
      Сервисы разворачиваются независимо друг от друга (соответственно релизиться тоже могут отдельно). Нужно стремится к тому чтобы сервисы были меньше связаны друг с другом (decoupled), чтобы при изменении одного сервиса не было необходимости менять что-либо ещё. 
-  
-  2) Сервисы организованы по принципу бизнес-доменов (domain-driven design) </br>
-     Это помогает расставлять границы между сервисами и в целом разбивать приложение на отдельные сервисы.
-     Каждый сервис использует нужные ему технологии в зависимости от бизнес задачи. Следствием этого становится кросс-функциональность команды, работающей над одним сервисом, т.е. в рамках большого приложения на разных сервисах могут быть свои разработчики, сови дизайнеры и тд.
  
   3) Smart endpoints and dumb pipes </br>
      Этот подход применяется как альтернатива ESB (Enterprise Service Bus).
      Независимые сервисы = smart endpoints - принимают запросы, обрабатывают их согласно базнес логике и возвращают ответ. Сложная внутренняя имплементация функционала должна быть скрыта (Hexagonal pattern) от интерфейсов, через которые осуществляется взаимодействие с этим функционалом. 
      RESTish protocols = dumb pipes - простые способы взаимодействия.
      
-   4) Отдельные базы данных
+   4) Отдельные базы данных </br>
       Если одному сервису нужны данные из другого сервиса, первый должен запросить эти данные у другого. Это позволит второму сервису определить данные, которые могут быть расшарены или скрыты.
    
   Bottleneck: 
@@ -43,11 +42,23 @@
 </details>
 <br/>
 <details>
-  <summary> Pattern: Backends For Frontends </summary>
+  <summary> Pattern: Backends For Frontends (API Gateway) </summary>
+  <br/>
+  
+  The API Gateway pattern defines how clients access the services in a microservice architecture.
+  
+  Что почитать:
+  1. [Pattern: Backends For Frontends](https://samnewman.io/patterns/architectural/bff/) by Sam Newman.
+  2. [Pattern: API Gateway / Backends for Frontends](https://microservices.io/patterns/apigateway.html) by Chris Richardson.
+
+</details>
+<br/>
+<details>
+  <summary> Pattern: Saga </summary>
   <br/>
   
   Что почитать:
-  1. [Pattern: Backends For Frontends](https://samnewman.io/patterns/architectural/bff/) by Sam Newman
+  1. [Pattern: Saga](https://microservices.io/patterns/data/saga.html) by Chris Richardson.
 
 </details>
 <br/>
