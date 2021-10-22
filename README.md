@@ -45,7 +45,9 @@
   <summary> Pattern: Backends For Frontends (API Gateway) </summary>
   <br/>
   
-  The API Gateway pattern defines how clients access the services in a microservice architecture.
+  API Gateway - патерн проектирования взаимодействия клиентского приложения с микросервисами. Согласно данному патерну создается единая точка входа (single entrypoint) во все сервисы. Запросы обрабатываются несколькими способами, например, при помощи перенаправления запроса (proxy/routing).
+  
+  Backends for frontends - патерн проектирования, при котором создаются отдельные API Gateway сервисы под конкретную клиентскую платформу (web app, mobile app).
   
   Что почитать:
   1. [Pattern: Backends For Frontends](https://samnewman.io/patterns/architectural/bff/) by Sam Newman.
